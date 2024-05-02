@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/vaccine").then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.producer + " : " + element.date;
+                    s.appendChild(o);
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/Member").then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.fname + " " + element.lname + " " + element.identityNum;
+                    selectOfMembers.appendChild(o);
+                })
+            })
+        })
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/Producer").then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.name;
+                    selectOfproducers.appendChild(o);
+                })
+            })
+        })
+        function addVaccine() {
+            //   let id=document.getElementById("id").value
+            let name = document.getElementById("selectOfproducers").value
+            let d = document.getElementById("d").value
+            let cov = document.getElementById("selectOfCoid").value
+            axios.post("https://localhost:7294/api/vaccine", {
+
+                "date": d,
+                "producerId": name,
+                "covidDetailsId": cov
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+        }
+        function updateVaccine() {
+            let id = document.getElementById("s")[document.getElementById("s").selectedIndex].value;
+            let name = document.getElementById("name").value
+            let d = document.getElementById("d").value
+            axios.put(`https://localhost:/${id}`, {
+                "producer": name,
+                "date": d
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+        }
+        function deleteVaccine() {
+            let id = document.getElementById("s")[document.getElementById("s").selectedIndex].value;
+            axios.delete(`https://localhost:7294/api/vaccine/${id}`).then(res => {
+                console.log(res.data);
+                location.reload();
+            })
+        }
+        function fill() {
+            let vac = document.getElementById("s")[document.getElementById("s").selectedIndex].value;
+            axios.get(`https://localhost:7294/api/vaccine/${vac}`).then(res => {
+                let l = res.data;
+                document.getElementById("name").value = l.producer;
+                document.getElementById("d").value = l.date;
+
+            })
+        }
+
+    </script>
+    <a href="HomeCovidPage.html">Home Page</a>
+    <br />
+</head>
+<body>
+    <label>List Of Vaccines</label>
+    <select style="width: 25vw;" id="s" onchange="fill()"  ></select><br>
+    <label>Choosing a member</label>
+    <select style="width: 25vw;" id="selectOfMembers"   ></select><br>
+    <label>Choosing a  producer</label>
+    <select style="width: 25vw;" id="selectOfproducers"   ></select><br>
+    <label>date selection</label><input id="d" type="date"/>
+    <br><button onclick="addVaccine()">Add Vaccine</button>
+</body>
+</html>

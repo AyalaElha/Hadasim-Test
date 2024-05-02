@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Covid.Service/1.0.0": {
+        "dependencies": {
+          "Covid.Core": "1.0.0"
+        },
+        "runtime": {
+          "Covid.Service.dll": {}
+        }
+      },
+      "Covid.Core/1.0.0": {
+        "runtime": {
+          "Covid.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Covid.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Covid.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

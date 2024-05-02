@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/Member").then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.fname + " : " + element.lname + " " + element.identityNum;
+                    sMembers.appendChild(o);
+                });
+            });
+        });
+        function addMember() {
+            let fname = document.getElementById("fname").value
+            let lname = document.getElementById("lname").value
+            let tz = document.getElementById("tz").value
+            let d = document.getElementById("birthDay").value
+            let phone = document.getElementById("phone").value
+            let mobilePhone = document.getElementById("mobilePhone").value
+            let city = document.getElementById("city").value
+            let street = document.getElementById("street").value
+            let numOfAdress = document.getElementById("numOfAdress").value
+
+            axios.post("https://localhost:7294/api/Member", {
+                "fname": fname,
+                "lname": lname,
+                "identityNum": tz,
+                "city": city,
+                "street": street,
+                "numAdress": numOfAdress,
+                "birthDay": d,
+                "phone": phone,
+                "mobilePhone": mobilePhone,
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+
+        }
+        function updateMember() {
+            let id = document.getElementById("sMembers")[document.getElementById("sMembers").selectedIndex].value;
+            let namef=document.getElementById("fname").value;
+            let namel=document.getElementById("lname").value;
+            let tz= document.getElementById("tz").value;
+            let city = document.getElementById("city").value;
+            let street=document.getElementById("street").value;
+            let numOfAdress=document.getElementById("numOfAdress").value;
+            let birthD=document.getElementById("birthDay").value;
+            let phone=document.getElementById("phone").value;
+            let mobilePhone=document.getElementById("mobilePhone").value;
+            axios.put(`https://localhost:7294/api/Member/${id}`, 
+                {
+                    "fname":namef,
+                    "lname":namel,
+                    "identityNum":tz,
+                    "city": city,
+                    "street": street,
+                    "numAdress": numOfAdress,
+                    "birthDay": birthD,
+                    "phone": phone,
+                    "mobilePhone": mobilePhone,
+                }).then(res => {
+                    console.log(res.data)
+                    location.reload();
+                })
+        }
+        function delelteMember() {
+            let CovidId="";
+            let id = document.getElementById("sMembers")[document.getElementById("sMembers").selectedIndex].value;
+            axios.get(`https://localhost:7294/api/Member/${id}`).then(res => {
+                CovidId=res.data.covidDetailsId
+                console.log(res.data);
+            })
+            axios.delete(`https://localhost:7294/api/Member/${id}`).then(res => {
+                console.log(res.data);
+                location.reload();
+            })
+            axios.delete(`https://localhost:7294/api/Covid/${CovidId}`).then(res => {
+                console.log(res.data);
+                location.reload();
+            })
+        }
+     
+        function fill() {
+            let mem = document.getElementById("sMembers")[document.getElementById("sMembers").selectedIndex].value;
+            axios.get(`https:localhost:7294/api/Member/${mem}`).then(res => {
+                let l = res.data;
+                document.getElementById("fname").value = l.fname;
+                document.getElementById("lname").value = l.lname;
+                document.getElementById("tz").value = l.identityNum;
+                document.getElementById("city").value = l.city;
+                document.getElementById("street").value = l.street;
+                document.getElementById("numOfAdress").value = l.numAdress;
+                document.getElementById("birthDay").value = l.birthDay.split("T")[0];
+                document.getElementById("phone").value = l.phone
+                document.getElementById("mobilePhone").value=l.mobilePhone
+            })
+        }
+    </script>
+    <a href="HomeCovidPage.html">Home Page</a>
+    <br />
+</head>
+
+<body>
+    <!-- <label for="f_name">שם פרטי  </label><input type="text" id="f_name" name="fname" placeholder="הקלד שם פרטי" title="אותיות בלבד"
+                                                                maxlength="40" size="20" required="required" autocomplete="on" /> -->
+    <br><label>first name: </label><input id="fname" type="text" />
+    <br><label>last name: </label><input id="lname" type="text" />
+    <br><label>id: </label><input id="tz" type="text" />
+    <br><label>date of birth: </label><input id="birthDay" type="date" />
+    <br><label>phone: </label><input id="phone" type="=text">
+    <br><label>mobile phone: </label><input id="mobilePhone" type="=text">
+    <br><label>city: </label><input id="city" type="text" />
+    <br><label>street: </label><input id="street" type="text" />
+    <br><label>num of building: </label><input id="numOfAdress" type="text" />
+    <!-- <br><label>date of positive result:  </label><input id="result" type="date">
+    <br><label>date of recovery:  </label><input id="recovery" type="date">
+    <br><label>num of vaccines </label><input id="numOfVaccine" type="number" max="4" min="0">  -->
+    <br><button onclick="addMember()">Add Member</button>
+    <button onclick="updateMember()">Update Member</button><br/>
+    <br/><label>LIST OF MEMBERS: </label>
+    <br><select style="width: 25vw;" id="sMembers" onchange="fill()"></select><button onclick="delelteMember()">Delete
+        Member</button>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+﻿Build started...
+1>------ Build started: Project: Covid.Core, Configuration: Debug Any CPU ------
+1>C:\Users\USER\Desktop\Covid\Covid.Core\Entities\Vaccine.cs(6,23,6,31): warning CS8618: Non-nullable property 'Producer' must contain a non-null value when exiting constructor. Consider declaring the property as nullable.
+1>Covid.Core -> C:\Users\USER\Desktop\Covid\Covid.Core\bin\Debug\net6.0\Covid.Core.dll
+1>Done building project "Covid.Core.csproj".
+2>------ Build started: Project: Covid.Service, Configuration: Debug Any CPU ------
+3>------ Build started: Project: Covid.Data, Configuration: Debug Any CPU ------
+2>Covid.Service -> C:\Users\USER\Desktop\Covid\Covid.Service\bin\Debug\net6.0\Covid.Service.dll
+3>Covid.Data -> C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.dll
+4>------ Build started: Project: Covid.Api, Configuration: Debug Any CPU ------
+4>Covid.Api -> C:\Users\USER\Desktop\Covid\Covid.Api\bin\Debug\net6.0\Covid.Api.dll
+========== Build: 4 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

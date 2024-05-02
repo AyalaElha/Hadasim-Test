@@ -1,0 +1,34 @@
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.deps.json
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.dll
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\ref\Covid.Data.dll
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.pdb
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Core.dll
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Core.pdb
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.AssemblyInfo.cs
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.CopyComplete
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.dll
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\ref\Covid.Data.dll
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.pdb
+C:\Users\USER\Desktop\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.runtimeconfig.json
+C:\Users\USER\Desktop\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.genruntimeconfig.cache
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.deps.json
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.runtimeconfig.json
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.dll
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\ref\Covid.Data.dll
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Data.pdb
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Core.dll
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\bin\Debug\net6.0\Covid.Core.pdb
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.AssemblyInfo.cs
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.csproj.CopyComplete
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.dll
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\ref\Covid.Data.dll
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.pdb
+C:\Users\USER\Desktop\test hadasim-1\ex1\Covid\Covid.Data\obj\Debug\net6.0\Covid.Data.genruntimeconfig.cache

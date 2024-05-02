@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Covid.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Covid.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Covid.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Covid.Core/1.0.0": {
+      "type": "project",
+      "path": "../Covid.Core/Covid.Core.csproj",
+      "msbuildProject": "../Covid.Core/Covid.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Covid.Core >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\USER\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\USER\\Desktop\\אילה\\test hadasim\\ex1\\Covid\\Covid.Service\\Covid.Service.csproj",
+      "projectName": "Covid.Service",
+      "projectPath": "C:\\Users\\USER\\Desktop\\אילה\\test hadasim\\ex1\\Covid\\Covid.Service\\Covid.Service.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USER\\Desktop\\אילה\\test hadasim\\ex1\\Covid\\Covid.Service\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\USER\\Desktop\\אילה\\test hadasim\\ex1\\Covid\\Covid.Core\\Covid.Core.csproj": {
+              "projectPath": "C:\\Users\\USER\\Desktop\\אילה\\test hadasim\\ex1\\Covid\\Covid.Core\\Covid.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

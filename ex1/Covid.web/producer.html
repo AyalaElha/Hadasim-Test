@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get( 'https://localhost:7294/api/Producer').then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.name;
+                    s.appendChild(o);
+                });
+            });
+        });
+        function addProducer() {
+            //et id=document.getElementById("id").value
+            let name = document.getElementById("name").value
+            let avail = document.getElementById("status").checked ? true : false
+            axios.post( 'https://localhost:7294/api/Producer', {
+                "name": name,
+                "status": avail
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+        }
+        function updateProducer() {
+
+            let idP = document.getElementById("s")[document.getElementById("s").selectedIndex].value;
+            let name = document.getElementById("name").value
+            let avail=  document.getElementById("status").checked ? true : false
+            axios.put(`https://localhost:7294/api/Producer/${idP}`, {
+                "name": name,
+                "status": avail
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+        }
+        function fill() {
+            let pro = document.getElementById("s")[document.getElementById("s").selectedIndex].value;
+            axios.get(`https://localhost:7294/api/Producer/${pro}`).then(res => {
+                let l = res.data;
+                document.getElementById("name").value = l.name;
+                document.getElementById("status").checked = l.status;
+            })
+        }
+
+    </script>
+    <a href="HomeCovidPage.html">Home Page</a>
+    <br />
+</head>
+<body>
+    <br><label>producer's name:  </label><input id="name" type="text" />
+    <br><label>note:  </label><input id="status" type="checkbox"  value="available"><label> available</label> <br>  
+    <button onclick="addProducer()">Add Producer</button>   <button onclick="updateProducer()">Update Producer</button><br><br>
+    <label>list of producers: </label><select onchange="fill()"="width: 25vw;" id="s"  ></select><br>
+</body>
+</html>

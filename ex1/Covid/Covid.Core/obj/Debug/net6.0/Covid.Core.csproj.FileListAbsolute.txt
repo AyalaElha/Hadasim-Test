@@ -1,0 +1,12 @@
+C:\Users\USER\Desktop\Covid\Covid.Core\bin\Debug\net6.0\Covid.Core.deps.json
+C:\Users\USER\Desktop\Covid\Covid.Core\bin\Debug\net6.0\Covid.Core.dll
+C:\Users\USER\Desktop\Covid\Covid.Core\bin\Debug\net6.0\ref\Covid.Core.dll
+C:\Users\USER\Desktop\Covid\Covid.Core\bin\Debug\net6.0\Covid.Core.pdb
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.AssemblyInfo.cs
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.dll
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\ref\Covid.Core.dll
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.pdb
+C:\Users\USER\Desktop\Covid\Covid.Core\obj\Debug\net6.0\Covid.Core.csproj.AssemblyReference.cache

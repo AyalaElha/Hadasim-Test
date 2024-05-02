@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/Member").then(res => {
+                let l = res.data;
+                l.forEach(element => {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text =  element.identityNum;
+                    sMembers.appendChild(o);
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            axios.get("https://localhost:7294/api/Producer").then(res => {
+                console.log(res.data)
+               let l = res.data;
+
+                l.forEach(element => {
+                //    console.log(l);
+                if(element.status==true)
+                {
+                    o = document.createElement("option")
+                    o.value = element.id;
+                    o.text = element.name;
+                    selectOfproducers.appendChild(o);
+                }
+                })
+               
+            })
+        })
+        const maxVaccines=4;
+        var covidId;
+        var memberId;
+        var member;
+        var covidDetails;
+        function  fill(){//a function to show details for member
+            document.getElementById("btnV").style="visibility: hidden"
+            document.getElementById("dateV").style="visibility: hidden"
+            document.getElementById("lblP").style="visibility: hidden"
+            document.getElementById("d").style="visibility: hidden"
+            document.getElementById("selectOfproducers").style="visibility: hidden"                
+            memberId=document.getElementById("sMembers").value;
+            vaccinesOfMember.innerHTML = '';
+            axios.get(`https://localhost:7294/api/Member/${memberId}`).then(res => {
+                console.log(res.data);
+                covidId=res.data.covidDetailsId;
+                member=res.data;
+            if(covidId==0)
+            {
+                document.getElementById("update").style="visibility: hidden"
+                document.getElementById("add").style.visibility = "visible"; 
+                document.getElementById("result").value=null;
+                document.getElementById("recovery").value=null;
+                document.getElementById("numOfVaccine").value=0;  
+            }
+            else if (covidId>0)
+            {
+                document.getElementById("add").style="visibility: hidden"
+                document.getElementById("update").style.visibility = "visible";
+                //fill in details
+                axios.get(`https://localhost:7294/api/Covid/${covidId}`).then(res=>{
+                    console.log(res.data);
+                    covidDetails=res.data;
+                    document.getElementById("result").value=covidDetails.positiveD.split("T")[0];
+                    document.getElementById("recovery").value=covidDetails.recoveryD.split("T")[0];
+                    document.getElementById("numOfVaccine").value=covidDetails.numOfVaccine;
+                    if(parseInt(document.getElementById("numOfVaccine").value)<maxVaccines)
+                    {
+                      document.getElementById("btnV").style="visibility: visible"
+                      document.getElementById("dateV").style="visibility: visible"
+                      document.getElementById("lblP").style="visibility: visible"
+                      document.getElementById("d").style="visibility: visible"
+                      document.getElementById("selectOfproducers").style="visibility: visible"
+                   }
+                })  
+                      axios.get("https://localhost:7294/api/Vaccine").then(res => {
+                      console.log(res.data)
+                      let l = res.data;
+                      l.forEach(element => {
+                      if(element.covidDetailsId==covidId)
+                      {
+                        o = document.createElement("option");
+                        o.value = element.id;
+                       // axios.get(`https://localhost:7294/api/Producer/${element.}`)
+                        o.text = element.date.split("T")[0]+" "+element.producer.name;
+                        o.style.visibility = "visible";
+                        vaccinesOfMember.appendChild(o);
+                      }
+                    })
+ 
+                    })       
+            }
+        })
+      }   
+        
+        function addCovidDetails() {
+                let id = document.getElementById("sMembers")[document.getElementById("sMembers").selectedIndex].value;
+                let dateOfResult = document.getElementById("result").value
+                let dateOfRecovery = document.getElementById("recovery").value
+                axios.post('https://localhost:7294/api/Covid', {
+                    "positiveD":dateOfResult,
+                    "recoveryD": dateOfRecovery,
+                    "numOfVaccine": 0,
+                    "memberId": id,
+                }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+            }
+        function updateCovidDetails() {
+               console.log(covidId);
+                let dateOfResult = document.getElementById("result").value
+                let dateOfRecovery = document.getElementById("recovery").value
+                let numOfVac=document.getElementById("numOfVaccine").value
+                axios.put(`https://localhost:7294/api/Covid/${covidId}`, {
+                    "positiveD":dateOfResult,
+                    "recoveryD": dateOfRecovery,
+                    "numOfVaccine":numOfVac ,
+                }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+            }   
+        function addVaccine() {
+            let name = document.getElementById("selectOfproducers").value;
+            let d = document.getElementById("d").value;
+            axios.post("https://localhost:7294/api/vaccine", {
+                "date": d,
+                "producerId": name,
+                "covidDetailsId": covidId
+            }).then(res => {
+                console.log(res.data)
+                location.reload();
+            })
+            let num=parseInt(document.getElementById("numOfVaccine").value)+1;
+            axios.put(`https://localhost:7294/api/Covid/${covidId}`, {
+                    "numOfVaccine":parseInt(num),
+                    "positiveD":document.getElementById("result").value,
+                    "recoveryD": document.getElementById("recovery").value,
+                }).then(res => {
+                   console.log(res.data)
+                })
+            location.reload();
+        }
+
+    </script>
+    <title></title>
+    <a href="HomeCovidPage.html">Home Page</a>
+</head>
+<body>
+    <br><label>select member for covid details: </label><select style="width: 25vw;" id="sMembers" onchange="fill()"></select><br>
+    <br><label>date of positive result: </label><input id="result" type="date">
+    <br><label>date of recovery: </label><input id="recovery" type="date">
+    <br><button id="add" onclick="addCovidDetails()">Add Covid Details</button>
+    <button id="update"onclick="updateCovidDetails()">Update Covid Details</button><br>
+    <br><label>VACCINES: </label>
+    <br><label>num of vaccines </label><input id="numOfVaccine" readonly="true" type="number" max="4" min="0">
+    <label>List Of Vaccines</label>
+    <select style="width: 25vw;" id="vaccinesOfMember" ></select><br> 
+    <br><label id="lblP">Choosing a  producer</label>
+    <select style="width: 25vw;" id="selectOfproducers"></select><br>
+    <label id="dateV">date of vaccine </label><input id="d" type="date"/>
+    <br><button id="btnV" onclick="addVaccine()">Add Vaccine</button>
+    <!-- <input  type="text" id="covId" style="visibility: hidden"> -->
+</body>
+
+</html>
